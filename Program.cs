@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static readonly bool TEST = true;
+        static readonly bool TEST = false;
         static void Main(string[] args)
         {
             //Make a program that gets the input from the user to add questions and answers, having the user point which answer is the correct one
@@ -20,11 +20,15 @@
                 testQuestion.Answers.Add("Yellow");
                 testQuestion.Answers.Add("Pink");
                 testQuestion.CorrectAnswerIndex = 2;
-                UI.PrintQuestion(testQuestion);
+                UI.PrintQuestionAndAnswers(testQuestion);
+                UI.Guess(testQuestion);
             }
             else
             {
-                UI.AddQuestions();
+                QuestionAndAnswers question = new();
+                question = UI.AddQuestions();
+                UI.PrintQuestionAndAnswers(question);
+                UI.Guess(question);
             }
 
         }

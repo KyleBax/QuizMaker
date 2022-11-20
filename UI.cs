@@ -15,7 +15,7 @@ Let's get started");
             string input = Console.ReadLine();
             return input;
         }
-        public static void AddQuestions()
+        public static QuestionAndAnswers AddQuestions()
         {
             Console.WriteLine("Would you like to add questions?\nY/N");
             if (Console.ReadLine().ToLower() == "y")
@@ -32,16 +32,25 @@ Let's get started");
                 }
                 //work out how to reword this so it makes more sense
                 Console.WriteLine("Now enter a number correspoonding to which answer you gave was correct");
-                newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine());
+                newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine())-1;
+                return newQuestion;
+            }
+            else
+            {
+                return null;
             }
         }
-        public static void PrintQuestion(QuestionAndAnswers questionAndAnswers)
+        public static void PrintQuestionAndAnswers(QuestionAndAnswers questionAndAnswers)
         {
             Console.WriteLine(questionAndAnswers.Question);
             foreach (string answer in questionAndAnswers.Answers)
             {
                 Console.WriteLine(answer);
             }
+        }
+        //TODO rename method
+        public static void Guess(QuestionAndAnswers questionAndAnswers)
+        {
             int guess = Convert.ToInt32(Console.ReadLine()) - 1;
             if (guess == questionAndAnswers.CorrectAnswerIndex)
             {
