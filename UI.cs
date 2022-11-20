@@ -32,6 +32,24 @@ Let's get started");
                 }
                 //work out how to reword this so it makes more sense
                 Console.WriteLine("Now enter a number correspoonding to which answer you gave was correct");
+                newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        public static void PrintQuestion(QuestionAndAnswers questionAndAnswers)
+        {
+            Console.WriteLine(questionAndAnswers.Question);
+            foreach (string answer in questionAndAnswers.Answers)
+            {
+                Console.WriteLine(answer);
+            }
+            int guess = Convert.ToInt32(Console.ReadLine()) - 1;
+            if (guess == questionAndAnswers.CorrectAnswerIndex)
+            {
+                Console.WriteLine("You are correct");
+            }
+            else
+            {
+                Console.WriteLine($"Sorry, that is not the correct answer, the correct answer was {questionAndAnswers.Answers[questionAndAnswers.CorrectAnswerIndex]}");
             }
         }
     }

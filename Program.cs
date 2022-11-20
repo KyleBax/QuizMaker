@@ -9,7 +9,6 @@
             //Store the QNA in a xml file
             //Call questions from the xml file to ask
             //Randomise the output of the QNA so you don't know the order
-
             //Update after getting the basics of the program running
             UI.WelcomeMessage();
             if (TEST == true)
@@ -21,11 +20,13 @@
                 testQuestion.Answers.Add("Yellow");
                 testQuestion.Answers.Add("Pink");
                 testQuestion.CorrectAnswerIndex = 2;
+                UI.PrintQuestion(testQuestion);
             }
             else
             {
                 UI.AddQuestions();
             }
+
         }
     }
 }
