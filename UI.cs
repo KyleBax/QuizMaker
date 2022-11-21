@@ -24,6 +24,7 @@ Let's get started");
                 Console.WriteLine("Please enter the question you would like to ask");
                 newQuestion.Question = Console.ReadLine();
                 Console.WriteLine("How many answers would you like to provide?");
+                //TODO fix error where if you don't enter a number the program crashes.
                 int i = Convert.ToInt32(Console.ReadLine());
                 for (int j = 0; j < i; j++)
                 {
@@ -32,7 +33,7 @@ Let's get started");
                 }
                 //work out how to reword this so it makes more sense
                 Console.WriteLine("Now enter a number correspoonding to which answer you gave was correct");
-                newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine())-1;
+                newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine()) - 1;
                 return newQuestion;
             }
             else
@@ -42,16 +43,22 @@ Let's get started");
         }
         public static void PrintQuestionAndAnswers(QuestionAndAnswers questionAndAnswers)
         {
+            int i = 0;
             Console.WriteLine(questionAndAnswers.Question);
             foreach (string answer in questionAndAnswers.Answers)
             {
-                Console.WriteLine(answer);
+                i++;
+                Console.WriteLine($"{i}: {answer}");
             }
         }
-        //TODO rename method
-        public static void Guess(QuestionAndAnswers questionAndAnswers)
+        public static int GetGuess(QuestionAndAnswers questionAndAnswers)
         {
+            Console.WriteLine("Which answer do you think is correct?\nEnter the corresponding number.");
             int guess = Convert.ToInt32(Console.ReadLine()) - 1;
+            return guess;
+        }
+        public static void ResultOfUsersGuess(QuestionAndAnswers questionAndAnswers, int guess)
+        {
             if (guess == questionAndAnswers.CorrectAnswerIndex)
             {
                 Console.WriteLine("You are correct");
