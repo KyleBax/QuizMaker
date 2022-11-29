@@ -2,6 +2,9 @@
 {
     internal class UI
     {
+        /// <summary>
+        /// Prints the welcome message to the console
+        /// </summary>
         public static void WelcomeMessage()
         {
             Console.WriteLine(@"Welcome to THE QUIZMAKER!!!
@@ -10,11 +13,10 @@ A bit of creativity for some fake answers.
 And some friends to challenge (well not really, but I'm sure it's more fun with friends).
 Let's get started");
         }
-        public static string GetUserInput()
-        {
-            string input = Console.ReadLine();
-            return input;
-        }
+        /// <summary>
+        /// Allows the user to enter new questions and answers
+        /// </summary>
+        /// <returns></returns>
         public static QuestionAndAnswers AddQuestions()
         {
             Console.WriteLine("Would you like to add questions?\nY/N");
@@ -41,6 +43,10 @@ Let's get started");
                 return null;
             }
         }
+        /// <summary>
+        /// prints a set of questions and answers to the console
+        /// </summary>
+        /// <param name="questionAndAnswers"></param>
         public static void PrintQuestionAndAnswers(QuestionAndAnswers questionAndAnswers)
         {
             int i = 0;
@@ -51,12 +57,22 @@ Let's get started");
                 Console.WriteLine($"{i}: {answer}");
             }
         }
+        /// <summary>
+        /// Gets the input guess of the user
+        /// </summary>
+        /// <param name="questionAndAnswers"></param>
+        /// <returns></returns>
         public static int GetGuess(QuestionAndAnswers questionAndAnswers)
         {
             Console.WriteLine("Which answer do you think is correct?\nEnter the corresponding number.");
             int guess = Convert.ToInt32(Console.ReadLine()) - 1;
             return guess;
         }
+        /// <summary>
+        /// Tells the user if their guess was right or wrong
+        /// </summary>
+        /// <param name="questionAndAnswers"></param>
+        /// <param name="guess"></param>
         public static void ResultOfUsersGuess(QuestionAndAnswers questionAndAnswers, int guess)
         {
             if (guess == questionAndAnswers.CorrectAnswerIndex)

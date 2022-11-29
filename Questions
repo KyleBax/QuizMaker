@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8"?><QuestionAndAnswers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><Question>What color are apples?</Question><Answers><string>Red</string><string>Pink</string><string>Blue</string><string>Yellow</string></Answers><CorrectAnswerIndex>0</CorrectAnswerIndex></QuestionAndAnswers>
