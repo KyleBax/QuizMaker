@@ -13,35 +13,33 @@ A bit of creativity for some fake answers.
 And some friends to challenge (well not really, but I'm sure it's more fun with friends).
 Let's get started");
         }
+        public static string ChoiceToAddQuestions()
+        {
+            Console.WriteLine("Would you like to add questions?\nY/N");
+            string choice = Console.ReadLine().ToLower();
+            return choice;
+        }
         /// <summary>
         /// Allows the user to enter new questions and answers
         /// </summary>
         /// <returns></returns>
-        public static QuestionAndAnswers AddQuestions()
+        public static QuestionAndAnswers CreateQuestionsAndAnswers()
         {
-            Console.WriteLine("Would you like to add questions?\nY/N");
-            if (Console.ReadLine().ToLower() == "y")
+            QuestionAndAnswers newQuestion = new();
+            Console.WriteLine("Please enter the question you would like to ask");
+            newQuestion.Question = Console.ReadLine();
+            Console.WriteLine("How many answers would you like to provide?");
+            //TODO fix error where if you don't enter a number the program crashes.
+            int i = Convert.ToInt32(Console.ReadLine());
+            for (int j = 0; j < i; j++)
             {
-                QuestionAndAnswers newQuestion = new();
-                Console.WriteLine("Please enter the question you would like to ask");
-                newQuestion.Question = Console.ReadLine();
-                Console.WriteLine("How many answers would you like to provide?");
-                //TODO fix error where if you don't enter a number the program crashes.
-                int i = Convert.ToInt32(Console.ReadLine());
-                for (int j = 0; j < i; j++)
-                {
-                    Console.WriteLine("Now enter some answers");
-                    newQuestion.Answers.Add(Console.ReadLine());
-                }
-                //work out how to reword this so it makes more sense
-                Console.WriteLine("Now enter a number correspoonding to which answer you gave was correct");
-                newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine()) - 1;
-                return newQuestion;
+                Console.WriteLine("Now enter some answers");
+                newQuestion.Answers.Add(Console.ReadLine());
             }
-            else
-            {
-                return null;
-            }
+            //work out how to reword this so it makes more sense
+            Console.WriteLine("Now enter a number correspoonding to which answer you gave was correct");
+            newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine()) - 1;
+            return newQuestion;
         }
         /// <summary>
         /// prints a set of questions and answers to the console
