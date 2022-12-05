@@ -13,6 +13,10 @@ A bit of creativity for some fake answers.
 And some friends to challenge (well not really, but I'm sure it's more fun with friends).
 Let's get started");
         }
+        /// <summary>
+        /// gives the user the option to add more questions
+        /// </summary>
+        /// <returns></returns>
         public static string ChoiceToAddQuestions()
         {
             Console.WriteLine("Would you like to add questions?\nY/N");
@@ -58,9 +62,8 @@ Let's get started");
         /// <summary>
         /// Gets the input guess of the user
         /// </summary>
-        /// <param name="questionAndAnswers"></param>
         /// <returns></returns>
-        public static int GetGuess(QuestionAndAnswers questionAndAnswers)
+        public static int GetGuess()
         {
             Console.WriteLine("Which answer do you think is correct?\nEnter the corresponding number.");
             int guess = Convert.ToInt32(Console.ReadLine()) - 1;

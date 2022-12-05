@@ -19,13 +19,13 @@
                 testQuestion.Answers.Add("Pink");
                 testQuestion.CorrectAnswerIndex = 2;
                 UI.PrintQuestionAndAnswers(testQuestion);
-                int guess = UI.GetGuess(testQuestion);
+                int guess = UI.GetGuess();
                 UI.ResultOfUsersGuess(testQuestion, guess);
             }
             else
             {
                 List<QuestionAndAnswers> listOfQuestionsAndAnswers = new List<QuestionAndAnswers>();
-                //work out a way to only call this once
+                //work out a way to only call ChoiceToAddQuestions once
                 string addQuestions = UI.ChoiceToAddQuestions();
                 while (addQuestions == "y")
                 {
@@ -45,14 +45,12 @@
                 {
                     listOfQuestionsAndAnswers = xmlSerializer.Deserialize(file) as List<QuestionAndAnswers>;
                 }
-
-                for (int i = 0; i < listOfQuestionsAndAnswers.Count; i++)
+                foreach (QuestionAndAnswers question in listOfQuestionsAndAnswers)
                 {
-                    QuestionAndAnswers questionOne = new();
                     Console.WriteLine();
-                    UI.PrintQuestionAndAnswers(questionOne);
-                    int guess = UI.GetGuess(questionOne);
-                    UI.ResultOfUsersGuess(questionOne, guess);
+                    UI.PrintQuestionAndAnswers(question);
+                    int guess = UI.GetGuess();
+                    UI.ResultOfUsersGuess(question, guess);
                 }
             }
         }
