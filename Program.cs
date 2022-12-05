@@ -24,7 +24,13 @@
             }
             else
             {
+                System.Xml.Serialization.XmlSerializer xmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(List<QuestionAndAnswers>));
+                var path = @"C:\Repos\Rakete mentoring work\QuizMaker\Questions";
                 List<QuestionAndAnswers> listOfQuestionsAndAnswers = new List<QuestionAndAnswers>();
+                using (FileStream file = File.OpenRead(path))
+                {
+                    listOfQuestionsAndAnswers = xmlSerializer.Deserialize(file) as List<QuestionAndAnswers>;
+                }
                 //work out a way to only call ChoiceToAddQuestions once
                 string addQuestions = UI.ChoiceToAddQuestions();
                 while (addQuestions == "y")
@@ -34,9 +40,6 @@
                     addQuestions = UI.ChoiceToAddQuestions();
                 }
 
-
-                System.Xml.Serialization.XmlSerializer xmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(List<QuestionAndAnswers>));
-                var path = @"C:\Repos\Rakete mentoring work\QuizMaker\Questions";
                 using (FileStream file = File.Create(path))
                 {
                     xmlSerializer.Serialize(file, listOfQuestionsAndAnswers);
