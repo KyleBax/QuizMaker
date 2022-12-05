@@ -9,13 +9,16 @@
             UI.PrintInstructions();
             List<QuestionAndAnswers> listOfQuestionsAndAnswers = Logic.Deserialize();
 
-            //work out a way to only call ChoiceToAddQuestions once
-            string addQuestions = UI.ChoiceToAddQuestions();
-            while (addQuestions == "y")
+            while (true)
             {
+                string addQuestions = UI.ChoiceToAddQuestions();
+                if (addQuestions != "y")
+                {
+                    break;
+                }
                 QuestionAndAnswers question = UI.CreateQuestionsAndAnswers();
                 listOfQuestionsAndAnswers.Add(question);
-                addQuestions = UI.ChoiceToAddQuestions();
+                
             }
             Logic.Serialize(listOfQuestionsAndAnswers);
 
