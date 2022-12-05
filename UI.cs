@@ -11,6 +11,7 @@
 All you need to play are: some friends to challenge (well not really, but I'm sure it's more fun with friends).
 Let's get started");
         }
+
         /// <summary>
         /// Gives the user the option to have the instructions printed to console and then prints if the user wants to see them
         /// </summary>
@@ -48,6 +49,7 @@ Finally you will be asked to: 'enter the number correspoonding to the answer you
 In this case the number you woud enter would be '3' as December is the correct answer.");
             }
         }
+
         /// <summary>
         /// gives the user the option to add more questions
         /// </summary>
@@ -58,6 +60,7 @@ In this case the number you woud enter would be '3' as December is the correct a
             string input = Console.ReadLine().ToLower();
             return input;
         }
+
         /// <summary>
         /// Allows the user to enter new questions and answers
         /// </summary>
@@ -95,6 +98,7 @@ In this case the number you woud enter would be '3' as December is the correct a
             newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine()) - 1;
             return newQuestion;
         }
+
         /// <summary>
         /// prints a set of questions and answers to the console
         /// </summary>
@@ -109,6 +113,7 @@ In this case the number you woud enter would be '3' as December is the correct a
                 Console.WriteLine($"{i}: {answer}");
             }
         }
+
         /// <summary>
         /// Gets the input guess of the user
         /// </summary>
@@ -119,6 +124,7 @@ In this case the number you woud enter would be '3' as December is the correct a
             int guess = Convert.ToInt32(Console.ReadLine()) - 1;
             return guess;
         }
+
         /// <summary>
         /// Tells the user if their guess was right or wrong
         /// </summary>

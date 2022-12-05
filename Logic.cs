@@ -3,6 +3,7 @@
     internal class Logic
     {
         private static readonly string PATH = @"C:\Repos\Rakete mentoring work\QuizMaker\Questions";
+
         /// <summary>
         /// Gets questions and answers that are stored in an xml file
         /// </summary>
@@ -26,6 +27,7 @@
             }
 
         }
+
         /// <summary>
         /// Stores questions and answers into an xml file
         /// </summary>
