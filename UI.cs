@@ -33,14 +33,29 @@ Let's get started");
             Console.WriteLine("Please enter the question you would like to ask");
             newQuestion.Question = Console.ReadLine();
             Console.WriteLine("How many answers would you like to provide?");
-            //TODO fix error where if you don't enter a number the program crashes.
-            int i = Convert.ToInt32(Console.ReadLine());
+            int i = 0;
+            while (i <= 0)
+            {
+                string input = Console.ReadLine();
+                if (string.IsNullOrEmpty(input))
+                {
+                    continue;
+                }
+                if (input.All(Char.IsNumber))
+                {
+                    i = Convert.ToInt32(input);
+
+                }
+                else
+                {
+                    continue;
+                }
+            }
             for (int j = 0; j < i; j++)
             {
                 Console.WriteLine("Now enter some answers");
                 newQuestion.Answers.Add(Console.ReadLine());
             }
-            //work out how to reword this so it makes more sense
             Console.WriteLine("Now enter a number correspoonding to which answer you gave was correct");
             newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine()) - 1;
             return newQuestion;
