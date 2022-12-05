@@ -105,6 +105,7 @@ In this case the number you woud enter would be '3' as December is the correct a
         /// <param name="questionAndAnswers"></param>
         public static void PrintQuestionAndAnswers(QuestionAndAnswers questionAndAnswers)
         {
+            Console.WriteLine();
             int i = 0;
             Console.WriteLine(questionAndAnswers.Question);
             foreach (string answer in questionAndAnswers.Answers)

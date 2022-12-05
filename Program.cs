@@ -21,7 +21,6 @@
 
             foreach (QuestionAndAnswers question in listOfQuestionsAndAnswers)
             {
-                Console.WriteLine();
                 UI.PrintQuestionAndAnswers(question);
                 int guess = UI.GetGuess();
                 UI.ResultOfUsersGuess(question, guess);
