@@ -2,6 +2,7 @@
 {
     internal class Logic
     {
+        private static readonly string PATH = @"C:\Repos\Rakete mentoring work\QuizMaker\Questions";
         /// <summary>
         /// Gets questions and answers that are stored in an xml file
         /// </summary>
@@ -12,7 +13,7 @@
             System.Xml.Serialization.XmlSerializer xmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(List<QuestionAndAnswers>));
             try
             {
-                using (FileStream file = File.OpenRead(Program.PATH))
+                using (FileStream file = File.OpenRead(PATH))
                 {
                     listOfQuestionsAndAnswers = xmlSerializer.Deserialize(file) as List<QuestionAndAnswers>;
                 }
@@ -34,7 +35,7 @@
             System.Xml.Serialization.XmlSerializer xmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(List<QuestionAndAnswers>));
             try
             {
-                using (FileStream file = File.Create(Program.PATH))
+                using (FileStream file = File.Create(PATH))
                 {
                     xmlSerializer.Serialize(file, listOfQuestionsAndAnswers);
                 }

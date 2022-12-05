@@ -5,13 +5,48 @@
         /// <summary>
         /// Prints the welcome message to the console
         /// </summary>
-        public static void WelcomeMessage()
+        public static void PrintWelcomeMessage()
         {
             Console.WriteLine(@"Welcome to THE QUIZMAKER!!!
-All you need to play are: Some questions, of which you know the answer to.
-A bit of creativity for some fake answers.
-And some friends to challenge (well not really, but I'm sure it's more fun with friends).
+All you need to play are: some friends to challenge (well not really, but I'm sure it's more fun with friends).
 Let's get started");
+        }
+        /// <summary>
+        /// Gives the user the option to have the instructions printed to console and then prints if the user wants to see them
+        /// </summary>
+        public static void PrintInstructions()
+        {
+            Console.WriteLine("Would you like to know how to play?\nY/N");
+            string printInstructions = Console.ReadLine().ToLower();
+            if (printInstructions == "y")
+            {
+                Console.WriteLine(@"There are two things you need to know:
+1. How to answer questions: A question will show up on your screen, something like this:
+Christmas is in December
+1. True
+2. False
+Then you enter the number that corresponds to the answer you believe to be correct.
+In this case we would enter 1
+Finally, you will get a message that tells you if you are right or wrong.
+
+2. How to add questions: If you choose to add questions to the list.
+You will be prompted to: 'Please enter the question you would like to ask'
+Then you enter the question: 'What month is Christmas in?'
+Another prompt: 'How many answers would you like to provide?'
+And you will enter a number like: '4'
+Then you will be prompted to enter as many answers for your question as the number you provided.
+In this case you would be asked four times to enter an answer:
+'Now enter an answer'
+'January'
+'Now enter an answer'
+'March'
+'Now enter an answer'
+'December'
+'Now enter an answer'
+'October'
+Finally you will be asked to: 'enter the number correspoonding to the answer you gave that was correct'
+In this case the number you woud enter would be '3' as December is the correct answer.");
+            }
         }
         /// <summary>
         /// gives the user the option to add more questions
@@ -53,10 +88,10 @@ Let's get started");
             }
             for (int j = 0; j < i; j++)
             {
-                Console.WriteLine("Now enter some answers");
+                Console.WriteLine("Now enter an answer");
                 newQuestion.Answers.Add(Console.ReadLine());
             }
-            Console.WriteLine("Now enter a number correspoonding to which answer you gave was correct");
+            Console.WriteLine("Now enter the number correspoonding to the answer you gave that was correct");
             newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine()) - 1;
             return newQuestion;
         }

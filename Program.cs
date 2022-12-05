@@ -2,10 +2,11 @@
 {
     internal class Program
     {
-        public static readonly string PATH = @"C:\Repos\Rakete mentoring work\QuizMaker\Questions";
+
         static void Main(string[] args)
         {
-            UI.WelcomeMessage();
+            UI.PrintWelcomeMessage();
+            UI.PrintInstructions();
             List<QuestionAndAnswers> listOfQuestionsAndAnswers = new List<QuestionAndAnswers>();
             listOfQuestionsAndAnswers = Logic.Deserialize(listOfQuestionsAndAnswers);
 
