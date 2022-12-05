@@ -9,11 +9,12 @@
         /// </summary>
         /// <param name="listOfQuestionsAndAnswers"></param>
         /// <returns></returns>
-        public static List<QuestionAndAnswers> Deserialize(List<QuestionAndAnswers> listOfQuestionsAndAnswers)
+        public static List<QuestionAndAnswers> Deserialize()
         {
             System.Xml.Serialization.XmlSerializer xmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(List<QuestionAndAnswers>));
             try
             {
+                List<QuestionAndAnswers> listOfQuestionsAndAnswers = new List<QuestionAndAnswers>();
                 using (FileStream file = File.OpenRead(PATH))
                 {
                     listOfQuestionsAndAnswers = xmlSerializer.Deserialize(file) as List<QuestionAndAnswers>;

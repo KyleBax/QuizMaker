@@ -7,8 +7,7 @@
         {
             UI.PrintWelcomeMessage();
             UI.PrintInstructions();
-            List<QuestionAndAnswers> listOfQuestionsAndAnswers = new List<QuestionAndAnswers>();
-            listOfQuestionsAndAnswers = Logic.Deserialize(listOfQuestionsAndAnswers);
+            List<QuestionAndAnswers> listOfQuestionsAndAnswers = Logic.Deserialize();
 
             //work out a way to only call ChoiceToAddQuestions once
             string addQuestions = UI.ChoiceToAddQuestions();
