@@ -20,8 +20,8 @@ Let's get started");
         public static string ChoiceToAddQuestions()
         {
             Console.WriteLine("Would you like to add questions?\nY/N");
-            string choice = Console.ReadLine().ToLower();
-            return choice;
+            string input = Console.ReadLine().ToLower();
+            return input;
         }
         /// <summary>
         /// Allows the user to enter new questions and answers

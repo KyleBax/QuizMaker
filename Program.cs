@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        public static readonly string PATH = @"C:\Repos\Rakete mentoring work\QuizMaker\Questions";
         static void Main(string[] args)
         {
             UI.WelcomeMessage();
