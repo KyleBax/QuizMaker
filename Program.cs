@@ -8,6 +8,7 @@
             UI.WelcomeMessage();
             List<QuestionAndAnswers> listOfQuestionsAndAnswers = new List<QuestionAndAnswers>();
             listOfQuestionsAndAnswers = Logic.Deserialize(listOfQuestionsAndAnswers);
+
             //work out a way to only call ChoiceToAddQuestions once
             string addQuestions = UI.ChoiceToAddQuestions();
             while (addQuestions == "y")
@@ -16,9 +17,7 @@
                 listOfQuestionsAndAnswers.Add(question);
                 addQuestions = UI.ChoiceToAddQuestions();
             }
-
             Logic.Serialize(listOfQuestionsAndAnswers);
-            listOfQuestionsAndAnswers = Logic.Deserialize(listOfQuestionsAndAnswers);
 
             foreach (QuestionAndAnswers question in listOfQuestionsAndAnswers)
             {
