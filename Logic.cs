@@ -47,5 +47,23 @@
                 Console.WriteLine(exception.Message);
             }
         }
+
+        /// <summary>
+        /// Determines whether the users guess was right or wrong
+        /// </summary>
+        /// <param name="questionAndAnswers"></param>
+        /// <param name="guess"></param>
+        /// <returns></returns>
+        public static bool CheckResultOfGuess(QuestionAndAnswers questionAndAnswers, int guess)
+        {
+            if (guess == questionAndAnswers.CorrectAnswerIndex)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

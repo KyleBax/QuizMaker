@@ -10,7 +10,7 @@
             UI.PrintWelcomeMessage();
             UI.PrintInstructions();
             List<QuestionAndAnswers> listOfQuestionsAndAnswers = Logic.Deserialize();
-        
+
             while (true)
             {
                 string addQuestions = UI.ChoiceToAddQuestions();
@@ -32,7 +32,16 @@
             {
                 UI.PrintQuestionAndAnswers(question);
                 int guess = UI.GetGuess();
-                UI.ResultOfUsersGuess(question, guess);
+                bool result = Logic.CheckResultOfGuess(question, guess);
+                if (result)
+                {
+                    UI.PrintResultAsCorrect();
+                }
+                else
+                {
+                    UI.PrintResultAsIncorrect(question);
+                }
+
             }
         }
     }

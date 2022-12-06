@@ -127,20 +127,20 @@ In this case the number you woud enter would be '3' as December is the correct a
         }
 
         /// <summary>
-        /// Tells the user if their guess was right or wrong
+        /// Tells the user that their guess was right
+        /// </summary>
+        public static void PrintResultAsCorrect()
+        {
+            Console.WriteLine("You are correct");
+        }
+
+        /// <summary>
+        /// Tells the user that their guess was wrong and tells them the correct answer
         /// </summary>
         /// <param name="questionAndAnswers"></param>
-        /// <param name="guess"></param>
-        public static void ResultOfUsersGuess(QuestionAndAnswers questionAndAnswers, int guess)
+        public static void PrintResultAsIncorrect(QuestionAndAnswers questionAndAnswers)
         {
-            if (guess == questionAndAnswers.CorrectAnswerIndex)
-            {
-                Console.WriteLine("You are correct");
-            }
-            else
-            {
-                Console.WriteLine($"Sorry, that is not the correct answer, the correct answer was {questionAndAnswers.Answers[questionAndAnswers.CorrectAnswerIndex]}");
-            }
+            Console.WriteLine($"Sorry, that is not the correct answer, the correct answer was {questionAndAnswers.Answers[questionAndAnswers.CorrectAnswerIndex]}");
         }
     }
 }
