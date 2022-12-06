@@ -5,10 +5,12 @@
 
         static void Main(string[] args)
         {
+            bool questionsAdded = false;
+
             UI.PrintWelcomeMessage();
             UI.PrintInstructions();
             List<QuestionAndAnswers> listOfQuestionsAndAnswers = Logic.Deserialize();
-
+        
             while (true)
             {
                 string addQuestions = UI.ChoiceToAddQuestions();
@@ -18,9 +20,13 @@
                 }
                 QuestionAndAnswers question = UI.CreateQuestionsAndAnswers();
                 listOfQuestionsAndAnswers.Add(question);
-                
+                questionsAdded = true;
             }
-            Logic.Serialize(listOfQuestionsAndAnswers);
+
+            if (questionsAdded)
+            {
+                Logic.Serialize(listOfQuestionsAndAnswers);
+            }
 
             foreach (QuestionAndAnswers question in listOfQuestionsAndAnswers)
             {
