@@ -19,13 +19,12 @@
                 {
                     listOfQuestionsAndAnswers = xmlSerializer.Deserialize(file) as List<QuestionAndAnswers>;
                 }
-                return listOfQuestionsAndAnswers;
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception.Message);
-                return listOfQuestionsAndAnswers;
+                Console.WriteLine(exception.Message);           
             }
+            return listOfQuestionsAndAnswers;
 
         }
 
