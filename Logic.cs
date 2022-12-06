@@ -11,10 +11,10 @@
         /// <returns></returns>
         public static List<QuestionAndAnswers> Deserialize()
         {
+            List<QuestionAndAnswers> listOfQuestionsAndAnswers = new List<QuestionAndAnswers>();
             System.Xml.Serialization.XmlSerializer xmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(List<QuestionAndAnswers>));
             try
-            {
-                List<QuestionAndAnswers> listOfQuestionsAndAnswers = new List<QuestionAndAnswers>();
+            {       
                 using (FileStream file = File.OpenRead(PATH))
                 {
                     listOfQuestionsAndAnswers = xmlSerializer.Deserialize(file) as List<QuestionAndAnswers>;
@@ -24,7 +24,7 @@
             catch (Exception exception)
             {
                 Console.WriteLine(exception.Message);
-                return null;
+                return listOfQuestionsAndAnswers;
             }
 
         }
