@@ -140,5 +140,10 @@ In this case the number you woud enter would be '3' as December is the correct a
             }
 
         }
+
+        public static void PrintScore(int score, int questionsAsked)
+        {
+            Console.WriteLine($"You got {score} out of {questionsAsked} questions right!!");
+        }
     }
 }

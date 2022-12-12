@@ -65,5 +65,14 @@
                 return false;
             }
         }
+
+        public static int IncreaseScoreCount(int score, bool result)
+        {
+            if (result)
+            {
+                score++;
+            }
+            return score;
+        }
     }
 }
