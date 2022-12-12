@@ -106,12 +106,10 @@ In this case the number you woud enter would be '3' as December is the correct a
         public static void PrintQuestionAndAnswers(QuestionAndAnswers questionAndAnswers)
         {
             Console.WriteLine();
-            int i = 0;
             Console.WriteLine(questionAndAnswers.Question);
-            foreach (string answer in questionAndAnswers.Answers)
+            for (int i = 0; i < questionAndAnswers.Answers.Count; i++)
             {
-                i++;
-                Console.WriteLine($"{i}: {answer}");
+                Console.WriteLine($"{i + 1}: {questionAndAnswers.Answers[i]}");
             }
         }
 
@@ -127,20 +125,20 @@ In this case the number you woud enter would be '3' as December is the correct a
         }
 
         /// <summary>
-        /// Tells the user that their guess was right
-        /// </summary>
-        public static void PrintResultAsCorrect()
-        {
-            Console.WriteLine("You are correct");
-        }
-
-        /// <summary>
-        /// Tells the user that their guess was wrong and tells them the correct answer
+        /// Tells the user whether their guess was correct or incorrect
         /// </summary>
         /// <param name="questionAndAnswers"></param>
-        public static void PrintResultAsIncorrect(QuestionAndAnswers questionAndAnswers)
+        public static void PrintResultOfGuess(QuestionAndAnswers questionAndAnswers, bool resut)
         {
-            Console.WriteLine($"Sorry, that is not the correct answer, the correct answer was {questionAndAnswers.Answers[questionAndAnswers.CorrectAnswerIndex]}");
+            if (resut)
+            {
+                Console.WriteLine("You are correct");
+            }
+            else
+            {
+                Console.WriteLine($"Sorry, that is not the correct answer, the correct answer was {questionAndAnswers.Answers[questionAndAnswers.CorrectAnswerIndex]}");
+            }
+
         }
     }
 }

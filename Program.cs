@@ -28,20 +28,14 @@
                 Logic.Serialize(listOfQuestionsAndAnswers);
             }
 
+
+
             foreach (QuestionAndAnswers question in listOfQuestionsAndAnswers)
             {
                 UI.PrintQuestionAndAnswers(question);
                 int guess = UI.GetGuess();
                 bool result = Logic.CheckResultOfGuess(question, guess);
-                if (result)
-                {
-                    UI.PrintResultAsCorrect();
-                }
-                else
-                {
-                    UI.PrintResultAsIncorrect(question);
-                }
-
+                UI.PrintResultOfGuess(question, result);
             }
         }
     }
