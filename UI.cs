@@ -141,6 +141,11 @@ In this case the number you woud enter would be '3' as December is the correct a
 
         }
 
+        /// <summary>
+        /// Prints the users total score
+        /// </summary>
+        /// <param name="score"></param>
+        /// <param name="questionsAsked"></param>
         public static void PrintScore(int score, int questionsAsked)
         {
             Console.WriteLine($"You got {score} out of {questionsAsked} questions right!!");

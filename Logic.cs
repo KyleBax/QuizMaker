@@ -14,7 +14,7 @@
             List<QuestionAndAnswers> listOfQuestionsAndAnswers = new List<QuestionAndAnswers>();
             System.Xml.Serialization.XmlSerializer xmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(List<QuestionAndAnswers>));
             try
-            {       
+            {
                 using (FileStream file = File.OpenRead(PATH))
                 {
                     listOfQuestionsAndAnswers = xmlSerializer.Deserialize(file) as List<QuestionAndAnswers>;
@@ -22,7 +22,7 @@
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception.Message);           
+                Console.WriteLine(exception.Message);
             }
             return listOfQuestionsAndAnswers;
 
@@ -66,6 +66,12 @@
             }
         }
 
+        /// <summary>
+        /// Increases score count when guess is correct
+        /// </summary>
+        /// <param name="score"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public static int IncreaseScoreCount(int score, bool result)
         {
             if (result)
@@ -73,6 +79,26 @@
                 score++;
             }
             return score;
+        }
+
+        public static int GetRandomQuestion(List<QuestionAndAnswers> listOfQuestionsAndAnswers, List<int> listOfNumbersUsed)
+        {
+            Random random = new Random();
+            while (true)
+            {
+                int index = random.Next(listOfQuestionsAndAnswers.Count);
+
+                if (listOfNumbersUsed.Contains(index))
+                {
+                    continue;
+                }
+                else
+                {
+                    listOfNumbersUsed.Add(index);
+                    return index;
+                }
+
+            }
         }
     }
 }

@@ -9,6 +9,7 @@
             bool questionsAdded = false;
             int score = 0;
             int questionsAsked = 0;
+            List<int> listOfNumbersUsed = new List<int>();
 
             UI.PrintWelcomeMessage();
             UI.PrintInstructions();
@@ -31,16 +32,18 @@
                 Logic.Serialize(listOfQuestionsAndAnswers);
             }
 
+
             for (int i = 0; i < QUESTION_COUNT; i++)
             {
                 if (i >= listOfQuestionsAndAnswers.Count)
                 {
                     break;
                 }
-                UI.PrintQuestionAndAnswers(listOfQuestionsAndAnswers[i]);
+                int index = Logic.GetRandomQuestion(listOfQuestionsAndAnswers, listOfNumbersUsed);
+                UI.PrintQuestionAndAnswers(listOfQuestionsAndAnswers[index]);
                 int guess = UI.GetGuess();
-                bool result = Logic.CheckResultOfGuess(listOfQuestionsAndAnswers[i], guess);
-                UI.PrintResultOfGuess(listOfQuestionsAndAnswers[i], result);
+                bool result = Logic.CheckResultOfGuess(listOfQuestionsAndAnswers[index], guess);
+                UI.PrintResultOfGuess(listOfQuestionsAndAnswers[index], result);
                 questionsAsked++;
                 score = Logic.IncreaseScoreCount(score, result);
             }
