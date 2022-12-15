@@ -22,8 +22,12 @@
                 {
                     break;
                 }
-                QuestionAndAnswers question = UI.CreateQuestionsAndAnswers();
-                listOfQuestionsAndAnswers.Add(question);
+                QuestionAndAnswers newQuestion = new QuestionAndAnswers();
+                newQuestion.Question = UI.CreateQuestion();
+                int answerCount = UI.NumberOfAnswers();
+                newQuestion.Answers = UI.CreateAnswers(answerCount);
+                newQuestion.CorrectAnswerIndex = UI.CreateCorrectAnswerIndex();
+                listOfQuestionsAndAnswers.Add(newQuestion);
                 questionsAdded = true;
             }
 
@@ -39,6 +43,7 @@
                 {
                     break;
                 }
+
                 int index = Logic.GetRandomQuestion(listOfQuestionsAndAnswers, listOfNumbersUsed);
                 UI.PrintQuestionAndAnswers(listOfQuestionsAndAnswers[index]);
                 int guess = UI.GetGuess();

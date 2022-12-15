@@ -62,17 +62,25 @@ In this case the number you woud enter would be '3' as December is the correct a
         }
 
         /// <summary>
-        /// Allows the user to enter new questions and answers
+        /// Asks the user to enter the question they want to ask
         /// </summary>
         /// <returns></returns>
-        public static QuestionAndAnswers CreateQuestionsAndAnswers()
+        public static string CreateQuestion()
         {
-            QuestionAndAnswers newQuestion = new();
             Console.WriteLine("Please enter the question you would like to ask");
-            newQuestion.Question = Console.ReadLine();
+            string question = Console.ReadLine();
+            return question;
+        }
+
+        /// <summary>
+        /// Asks the user for how many answers they would like to provide
+        /// </summary>
+        /// <returns></returns>
+        public static int NumberOfAnswers()
+        {
             Console.WriteLine("How many answers would you like to provide?");
-            int i = 0;
-            while (i <= 0)
+            int answerCount = 0;
+            while (answerCount <= 0)
             {
                 string input = Console.ReadLine();
                 if (string.IsNullOrEmpty(input))
@@ -81,7 +89,7 @@ In this case the number you woud enter would be '3' as December is the correct a
                 }
                 if (input.All(Char.IsNumber))
                 {
-                    i = Convert.ToInt32(input);
+                    answerCount = Convert.ToInt32(input);
 
                 }
                 else
@@ -89,14 +97,35 @@ In this case the number you woud enter would be '3' as December is the correct a
                     continue;
                 }
             }
-            for (int j = 0; j < i; j++)
+            return answerCount;
+        }
+
+        /// <summary>
+        /// gets the user to provide answers
+        /// </summary>
+        /// <param name="answerCount"></param>
+        /// <returns></returns>
+        public static List<string> CreateAnswers(int answerCount)
+        {
+            List<string> answers = new List<string>();
+            for (int j = 0; j < answerCount; j++)
             {
                 Console.WriteLine("Now enter an answer");
-                newQuestion.Answers.Add(Console.ReadLine());
+                answers.Add(Console.ReadLine());
             }
+
+            return answers;
+        }
+
+        /// <summary>
+        /// gets the user to provide a number corresponding to the correct answer
+        /// </summary>
+        /// <returns></returns>
+        public static int CreateCorrectAnswerIndex()
+        {
             Console.WriteLine("Now enter the number correspoonding to the answer you gave that was correct");
-            newQuestion.CorrectAnswerIndex = Convert.ToInt32(Console.ReadLine()) - 1;
-            return newQuestion;
+            int correctAnswerIndex = Convert.ToInt32(Console.ReadLine()) - 1;
+            return correctAnswerIndex;
         }
 
         /// <summary>
