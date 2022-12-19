@@ -81,6 +81,12 @@
             return score;
         }
 
+        /// <summary>
+        /// Gets a random index number and checks to make sure it hasn't been used already
+        /// </summary>
+        /// <param name="listOfQuestionsAndAnswers"></param>
+        /// <param name="listOfNumbersUsed"></param>
+        /// <returns></returns>
         public static int GetRandomQuestion(List<QuestionAndAnswers> listOfQuestionsAndAnswers, List<int> listOfNumbersUsed)
         {
             Random random = new Random();
@@ -99,6 +105,22 @@
                 }
 
             }
+        }
+
+        /// <summary>
+        /// Compiles all the information the user entered to 
+        /// </summary>
+        /// <param name="question"></param>
+        /// <param name="answers"></param>
+        /// <param name="correctAnswerIndex"></param>
+        /// <returns></returns>
+        public static QuestionAndAnswers CompileNewQuestionAndAnswers(string question, List<string> answers, int correctAnswerIndex)
+        {
+            QuestionAndAnswers newQuestion = new QuestionAndAnswers();
+            newQuestion.Question = question;
+            newQuestion.Answers = answers;
+            newQuestion.CorrectAnswerIndex = correctAnswerIndex;
+            return newQuestion;
         }
     }
 }

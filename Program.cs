@@ -10,10 +10,11 @@
             int score = 0;
             int questionsAsked = 0;
             List<int> listOfNumbersUsed = new List<int>();
+            List<QuestionAndAnswers> listOfQuestionsAndAnswers = Logic.Deserialize();
 
             UI.PrintWelcomeMessage();
             UI.PrintInstructions();
-            List<QuestionAndAnswers> listOfQuestionsAndAnswers = Logic.Deserialize();
+
 
             while (true)
             {
@@ -22,11 +23,12 @@
                 {
                     break;
                 }
-                QuestionAndAnswers newQuestion = new QuestionAndAnswers();
-                newQuestion.Question = UI.CreateQuestion();
+
+                string question = UI.CreateQuestion();
                 int answerCount = UI.NumberOfAnswers();
-                newQuestion.Answers = UI.CreateAnswers(answerCount);
-                newQuestion.CorrectAnswerIndex = UI.CreateCorrectAnswerIndex();
+                List<string> answers = UI.CreateAnswers(answerCount);
+                int correctAnswerIndex = UI.CreateCorrectAnswerIndex();
+                QuestionAndAnswers newQuestion = Logic.CompileNewQuestionAndAnswers(question, answers, correctAnswerIndex);
                 listOfQuestionsAndAnswers.Add(newQuestion);
                 questionsAdded = true;
             }
