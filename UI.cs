@@ -124,8 +124,25 @@ In this case the number you woud enter would be '3' as December is the correct a
         public static int CreateCorrectAnswerIndex()
         {
             Console.WriteLine("Now enter the number correspoonding to the answer you gave that was correct");
-            int correctAnswerIndex = Convert.ToInt32(Console.ReadLine()) - 1;
-            return correctAnswerIndex;
+            int correctAnswerIndex = 0;
+            while (correctAnswerIndex <= 0)
+            {
+                string input = Console.ReadLine();
+                if (string.IsNullOrEmpty(input))
+                {
+                    continue;
+                }
+                if (input.All(Char.IsNumber))
+                {
+                    correctAnswerIndex = Convert.ToInt32(input);
+
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return correctAnswerIndex - 1;
         }
 
         /// <summary>

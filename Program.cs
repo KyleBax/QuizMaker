@@ -15,7 +15,6 @@
             UI.PrintWelcomeMessage();
             UI.PrintInstructions();
 
-
             while (true)
             {
                 string addQuestions = UI.ChoiceToAddQuestions();
