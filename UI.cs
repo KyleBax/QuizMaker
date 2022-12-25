@@ -166,8 +166,25 @@ In this case the number you woud enter would be '3' as December is the correct a
         public static int GetGuess()
         {
             Console.WriteLine("Which answer do you think is correct?\nEnter the corresponding number.");
-            int guess = Convert.ToInt32(Console.ReadLine()) - 1;
-            return guess;
+            int guess = 0;
+            while (guess <= 0)
+            {
+                string input = Console.ReadLine();
+                if (string.IsNullOrEmpty(input))
+                {
+                    continue;
+                }
+                if (input.All(Char.IsNumber))
+                {
+                    guess = Convert.ToInt32(input);
+
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return guess - 1;
         }
 
         /// <summary>
